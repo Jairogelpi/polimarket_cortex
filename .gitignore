@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+data/*.db
+data/**/*.db
+data/raw/*
+data/replay/*
+!data/.gitkeep
+!data/raw/.gitkeep
+!data/replay/.gitkeep
+!data/journals/.gitkeep

@@ -34,6 +34,20 @@ def main() -> None:
     except Exception as e:
         print(f"Error spread: {e}")
 
+    print("\n=== PRICE (BUY) ===")
+    try:
+        price = client.get_price(token_id, "BUY")
+        print(json.dumps(price, indent=2, ensure_ascii=False))
+    except Exception as e:
+        print(f"Error price: {e}")
+
+    print("\n=== LAST TRADE PRICE ===")
+    try:
+        last_trade_price = client.get_last_trade_price(token_id)
+        print(json.dumps(last_trade_price, indent=2, ensure_ascii=False))
+    except Exception as e:
+        print(f"Error last trade price: {e}")
+
     print("\n=== SERVER TIME ===")
     try:
         server_time = client.get_server_time()

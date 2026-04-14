@@ -53,8 +53,14 @@ class PolymarketREST:
     def get_spread(self, token_id: str) -> Any:
         return self._get(f"{CLOB_HOST}/spread", params={"token_id": token_id})
 
-    def get_market_price(self, token_id: str) -> Any:
-        return self._get(f"{CLOB_HOST}/price", params={"token_id": token_id})
+    def get_price(self, token_id: str, side: str) -> Any:
+        return self._get(f"{CLOB_HOST}/price", params={"token_id": token_id, "side": side})
+
+    def get_last_trade_price(self, token_id: str) -> Any:
+        return self._get(f"{CLOB_HOST}/last-trade-price", params={"token_id": token_id})
+
+    def get_market_price(self, token_id: str, side: str = "buy") -> Any:
+        return self.get_price(token_id, side)
 
     def get_server_time(self) -> Any:
         return self._get(f"{CLOB_HOST}/time")
